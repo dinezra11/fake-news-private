@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+        <body>
+        <br><br><br>
+        <h1>The following users are still waiting for expert approval</h1>
+                <table>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.firstname }} {{ user.lastname }}</td>
+                            <td>
+                                <form action="/approvelist/" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden"  name="userId" value="{{ user.user.id }}">
+                                    <input type="submit" name="button" value="Deny">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/approvelist/" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden"  name="userId" value="{{ user.user.id }}">
+                                    <input type="submit" name="button" value="Approve">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+            </table>
+        </body>
+    {% endblock %}
+</html>

@@ -1,0 +1,81 @@
+/* Home page CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+/* Donald Trump's quote */
+.quote {
+    font-family: 'Nixie One', cursive;
+    position: absolute;
+    top: 300px;
+    left: 50px;
+    color: #736e6e;
+}
+
+/* for left quote only */
+.quote span-left {
+    font-family: 'Secular One', sans-serif;
+    color: #AFA9A9FF;
+    font-size: 60px;
+    position: absolute;
+    top:-35px;
+    left:-25px;
+}
+
+/* for right quote only */
+.quote span-right {
+    font-family: 'Secular One', sans-serif;
+    color: #AFA9A9FF;
+    font-size: 60px;
+    position: absolute;
+    top:30px;
+    left:290px;
+    transform: scaleY(-1);
+}
+/* for the line spacing of the sentence */
+.quote span {
+    position: absolute;
+    top: 40px;
+    right: 48px;
+}
+
+/* Headline */
+/* Primary-headline fade effect */
+.fade-in {
+    margin-top: 110px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    letter-spacing: 5px;
+	animation: fadeInAnimation ease 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+/* Sub-headline fade effect */
+fade-in2 {
+    margin-top: 20px;
+    color: #afa9a9;
+    font-family: 'Montserrat', sans-serif;
+    animation: fadeInAnimation ease 5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+fade-in3 {
+    font-family: 'Aboreto', cursive;
+    animation: fadeInAnimation ease 5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+        transform: translateX(-40px);
+	}
+	100% {
+		opacity: 1;
+	}
+}

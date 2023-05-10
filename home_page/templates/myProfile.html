@@ -1,0 +1,184 @@
+<style>
+
+.button1{
+
+    position: fixed;
+    right: 50%;
+    top: 70%;
+}
+.input {
+ color: #8707ff;
+ border: 2px solid #8707ff;
+ border-radius: 10px;
+ padding: 10px 25px;
+ background: transparent;
+ max-width: 190px;
+}
+
+.input:active {
+ box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+button {
+  --green: #1BFD9C;
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--green);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+  color: var(--green);
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+
+button:hover {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+}
+
+button:hover:before {
+  transform: translateX(15em);
+}
+
+
+.uxa-form-group {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 0.2rem 0.6rem rgba(50, 50, 50, 0.15);
+}
+
+.form-group span {
+  color: red;
+}
+
+.uxa-user-avatar {
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+.uxa-user-avatar img {
+  width: 150px;
+    height: 150px;
+}
+
+</style>
+ <link rel="stylesheet" type="text/css" href="../static/css/loginFirst.css">
+{% extends 'navbar.html' %}
+{% block content %}
+    <form method="POST" id='profile' enctype="multipart/form-data">
+     {% csrf_token %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 uxa-form-group mt-5">
+
+<br>
+  <br>
+<br>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- /single sentence description -->
+    {% if  user.is_authenticated %}
+    {% for user in users %}
+      <div class="uxa-user-avatar">
+        {% if user.pic %}
+        <img src="{{ user.pic.url }}" alt="User avatar">
+        {% else %}
+               <img src="https://legacycentennialhills.com/wp-content/uploads/2015/07/No-Image-Available1.png" alt="User avatar" />
+        {% endif %}
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      </div>
+        <pre>
+         <label for="firstname">firstname</label>
+        <input type="text" name="firstname" id="firstname" class="input" value={{ user.firstname }}>
+            <br>
+         <label for="lastname">lastname</label>
+        <input type="text" name="lastname" class="input" id="lastname"  value={{ user.lastname }}>
+              <br>
+         <label for="pic">Change/Add profile picture</label>
+        <input type="file" name="profilepicture" id="profilepicture" class="input" accept="image/*">
+              <br>
+      <label for="pic">Change certificate picture</label>
+        <input type="file" name="certificatepicture" id="certificatepicture" class="input" accept="image/*">
+        <br>
+        <label for="password1">Change Password</label>
+        <input type="password" name="password1" class="input" id="password1">
+            <br>
+        <label for="password2">password confirmation </label>
+        <input type="password" name="password2" class="input" id="password2">
+          <br>
+        </pre>
+        <button type="submit" class="button1">Save</button>
+    </div>
+{% endfor %}
+        {% else %}
+  <div class="inner">
+
+	<div class="kirin"></div>
+
+	<svg id="wave" viewBox="0 0 746 300">
+
+						<defs>
+							<path id="curve" d="M.35 56.81c53.28 0 53.28 22 106.57 11s53.28-11 106.57-11 53.28 11 106.57 11 53.28-11 106.56-11 53.29 11 106.58 11 53.28-11 106.57-11 53.29 11 106.58 11" />
+						</defs>
+
+						<text id="desc" x="55%" text-anchor="middle" transform="translate(0, 0)">
+							<textPath xlink:href="#curve">
+								Opps! You seem to be offline!
+
+							</textPath>
+						</text>
+
+						<text id="number" x="50%" text-anchor="middle" transform="translate(0, 140)">
+							<textPath xlink:href="#curve">
+                                Login First
+							</textPath>
+						</text>
+
+					</svg>
+
+	<div class="wave-background">
+		<div class="back"></div>
+		<div class="middle"></div>
+		<div class="front"></div>
+	</div>
+
+</div>
+
+
+
+
+
+{% endif %}
+
+  </div>
+</div>
+</form>
+{% endblock %}
+```

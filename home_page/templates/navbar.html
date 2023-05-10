@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/css/nav_bar.css">
+        <script src="../static/js/nav_bar.js"></script>
+    </head>
+
+    <body>
+        <nav class="nav-bar sticky">
+            <a class="home-button no-hover-effect" href="../../">FAKE NEWS</a>
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-item-hover" href="../../users">Users</a></li>
+                    <li class="nav-item"><a class="nav-item-hover" href="../myProfile">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-item-hover" href="../myarticle">My Articles</a></li>
+                    <li class="nav-item"><a class="nav-item-hover" href="../../articles">Articles Catalog</a></li>
+                    <li class="nav-item"><a class="nav-item-hover" href="../../reviews">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-item-hover" href="../registration/logout2">logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-item-hover" href="../../registration/register">Registration</a></li>
+                <li class="nav-item"><a class="nav-item-hover" href="../../registration/login">Login</a></li>
+                <li class="nav-item"><a class="nav-item-hover" href="../../users">Users</a></li>
+                <li class="nav-item"><a class="nav-item-hover" href="../myProfile">My Profile</a></li>
+                <li class="nav-item"><a class="nav-item-hover" href="../../reviews">Contact Us</a></li>
+                {% endif %}
+                <!-- Dropdown -->
+                <li class="nav-item">
+                    <div class="select-box">
+                        <div class="select-box-current" tabindex="1">
+                            <div class="select-box-value">
+                                <input class="select-box-input" type="radio" id="0" value="1" name="choice" checked />
+                                <p class="select-box-input-text">All</p>
+                            </div>
+                            <div class="select-box-value">
+                                <input class="select-box-input" type="radio" id="1" value="2" name="choice" />
+                                <p class="select-box-input-text">Tech</p>
+                            </div>
+                            <div class="select-box-value">
+                                <input class="select-box-input" type="radio" id="2" value="3" name="choice" />
+                                <p class="select-box-input-text">Political</p>
+                            </div>
+                            <div class="select-box-value">
+                                <input class="select-box-input" type="radio" id="3" value="4" name="choice" />
+                                <p class="select-box-input-text">Sport</p>
+                            </div>
+                            <div class="select-box-value">
+                                <input class="select-box-input" type="radio" id="4" value="5" name="choice" />
+                                <p class="select-box-input-text">Finance</p>
+                            </div>
+                            <img class="select-box_icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
+                        </div>
+                        <ul class="select-box-list">
+                            <li>
+                                <label class="select-box-option" for="0" aria-hidden="aria-hidden">All</label>
+                            </li>
+                            <li>
+                                <label class="select-box-option" for="1" aria-hidden="aria-hidden">Tech</label>
+                            </li>
+                            <li>
+                                <label class="select-box-option" for="2" aria-hidden="aria-hidden">Political</label>
+                            </li>
+                            <li>
+                                <label class="select-box-option" for="3" aria-hidden="aria-hidden">Sport</label>
+                            </li>
+                            <li>
+                                <label class="select-box-option" for="4" aria-hidden="aria-hidden">Finance</label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- seatch box -->
+                <li><input class="search-box" type="text" placeholder="Search"></li>
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

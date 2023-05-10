@@ -1,0 +1,279 @@
+/* Navbar CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+/* Navbar container that split into 2 - one for the home button and second for the rest of the bar */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+
+/* Slide up the navbar when toggle top, using navbar.js */
+.slide-up {
+    height: 65px;
+    padding-top: 5px;
+    transition: height 0.3s ease-in-out, padding-top 0.3s ease-in-out;
+    box-shadow: none;
+}
+
+/* Slide down the navbar when toggle down, using navbar.js */
+.slide-down {
+    height: 85px;
+    padding-top: 15px;
+    transition: height 0.3s ease-in-out, padding-top 0.3s ease-in-out;
+    box-shadow: 0 8px 20px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* Fake News home button */
+.home-button {
+    position: relative;
+    margin-top: 2px;
+    display: flex;
+    padding-top: 19px;
+    justify-self: center;
+    font-family: 'Aboreto', cursive;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Fake News home button do not take hover effect */
+.no-hover-effect:hover::before {
+    transform-origin: inherit;
+    transform: scaleX(0);
+}
+
+/* Container of the bar items and search box */
+.nav-list {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 190px 100px 100px 100px 300px;
+    gap: 20px;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-list li {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+.nav-list a {
+    margin-top: 5px;
+    display: block;
+    text-decoration: none;
+    color:#5c585c;
+}
+
+/* Select the nav item when it's being hovered */
+.navbar-nav .nav-item:hover {
+    position: relative;
+}
+
+.nav-item-hover {
+    color: #afa9a9;
+    position: relative;
+    text-decoration: none;
+}
+
+/* line hover effect */
+.nav-item-hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    border-radius: 4px;
+    background-color: #575756;
+    bottom: -12px;
+    left: 0;
+    transform-origin: initial;
+    transform: scaleX(0);
+    transition: transform .4s ease-in-out;
+}
+
+.nav-item-hover:hover::before {
+    transform-origin: inherit;
+    transform: scaleX(0.5);
+}
+
+
+/* Dropdown box */
+.select-box {
+    position: relative;
+    margin-top: -12px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: #60666d;
+}
+
+.select-box-current {
+    position: relative;
+    padding: 2px 8px 2px 2px;
+    cursor: pointer;
+    outline: none;
+}
+
+.select-box-current:focus + .select-box-list {
+    opacity: 1;
+    -webkit-animation-name: none;
+            animation-name: none;
+}
+
+.select-box-current:focus + .select-box-list .select-box__option {
+    cursor: pointer;
+}
+
+.select-box-current:focus .select-box_icon {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
+}
+
+.select-box_icon {
+    position: absolute;
+    top: 65%;
+    right: 15px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 13px;
+    opacity: 0.3;
+    transition: 0.3s ease;
+}
+
+.select-box-value {
+    display: flex;
+}
+
+.select-box-input {
+    display: none;
+}
+
+.select-box-input:checked + .select-box-input-text {
+    display: block;
+}
+
+.select-box-input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 15px 10px 2px;
+    background-color: #ffffff;
+}
+
+.select-box-list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    -webkit-animation-name: HideList;
+            animation-name: HideList;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: step-start;
+            animation-timing-function: step-start;
+    /*box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);*/
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.select-box-option {
+    display: block;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.select-box-option:hover, .select-box-option:focus {
+    color: #546c84;
+    background-color: #fbfbfb;
+}
+
+@-webkit-keyframes HideList {
+    from {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    to {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+    }
+}
+
+@keyframes HideList {
+    from {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    to {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+    }
+}
+
+/* Cancel shadow effect for dropbox when toggle top, using navbar.js*/
+.dropbox-unshadowed {
+    box-shadow:none;
+}
+
+/* Apply shadow effect for dropbox when toggle top, using navbar.js*/
+.dropbox-shadowed {
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Search Box */
+.search-box {
+    width: 100%;
+    padding: 8px 24px;
+    margin-left: 15px;
+    margin-top: -5px;
+    background-color: transparent;
+    transition: transform 300ms ease-in-out;
+    font-size: 14px;
+    line-height: 12px;
+    color: #5c585c;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 300ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.search-box::placeholder {
+    color: rgba(87, 87, 86, 0.8);
+    font-family: 'Comfortaa', cursive;
+    letter-spacing: 1.5px;
+}
+
+.search-box:hover,
+.search-box:focus {
+    padding: 10px 0;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #575756;
+    border-radius: 0;
+    background-position: 100% center;
+}
