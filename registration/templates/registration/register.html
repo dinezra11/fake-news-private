@@ -1,0 +1,159 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<style>
+    #box{
+        display: none;
+    }
+     #box2{
+        display: none;
+    }
+
+</style>
+
+
+
+
+
+<form method="post" enctype="multipart/form-data">>
+  <input type="hidden" name="csrfmiddlewaretoken" value="4zquNjBmuJLCXAqZ32uH6doe0wQLGLCUOtTwa6ApfVnCaQ7tbIqOQZcovcPUlQur">
+  <p>
+       <br>
+    <br>
+    <br>
+       <br>
+    <br>
+    <br>
+       <br>
+    <br>
+    <br>
+    <label for="id_username">Username:</label>
+    <input type="text" name="username" maxlength="150" autofocus required id="id_username">
+      {% if form.username.errors %}
+    <div class="alert alert-danger">
+        {{ form.username.errors }}
+    </div>
+{% endif %}
+
+      <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+
+
+  </p>
+
+
+  <p>
+    <label for="id_firstname">Firstname:</label>
+    <input type="text" name="firstname" required id="id_firstname">
+        {% if form.firstname.errors %}
+    <div class="alert alert-danger">
+        {{ form.firstname.errors }}
+    </div>
+
+{% endif %}
+
+  </p>
+
+  <p>
+    <label for="lastname">lastname:</label>
+    <input type="text" name="lastname" required id="lastname">
+        {% if form.lastname.errors %}
+    <div class="alert alert-danger">
+        {{ form.lastname.errors }}
+    </div>
+{% endif %}
+
+  </p>
+  <p>
+    <label for="id_email">Email address:</label>
+    <input type="email" name="email" maxlength="254" id="id_email">
+{% if form.email.errors %}
+    <div class="alert alert-danger">
+        {{ form.email.errors }}
+    </div>
+{% endif %}
+
+
+
+  </p>
+
+
+
+
+
+  <p>
+    <label for="id_password1">Password:</label>
+    <input type="password" name="password1" autocomplete="new-password" required id="id_password1">
+
+
+
+  </p>
+
+
+  <p>
+    <label for="id_password2">Password confirmation:</label>
+    <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+ {% if form.password1.errors %}
+    <div class="alert alert-danger">
+        {{ form.password1.errors }}
+    </div>
+{% endif %}
+      <span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
+
+
+  </p>
+
+
+  <p>
+    <label for="id_isexpert">Isexpert:</label>
+    <input type="checkbox" name="isexpert"  id="id_isexpert">
+
+
+  </p>
+
+
+  <p>
+    <label for="box" id="box2">Certificate:</label>
+    <input type="file" name="Certificate" accept="image/*"  id="box">
+
+
+
+
+  </p>
+  <p>
+    <label for="id_pic">Pic:</label>
+    <input type="file" name="pic" accept="image/*"  id="id_pic">
+
+
+  </p>
+
+
+
+
+
+
+  <button type="submit">Register</button>
+</form>
+<script>
+const myCheckbox = document.getElementById("id_isexpert");
+const box = document.getElementById('box');
+const box2 = document.getElementById('box2');
+
+
+
+
+
+
+myCheckbox.addEventListener('click', function handleClick() {
+
+    if (myCheckbox.checked) {
+    box2.style.display='block'
+    box.style.display='block'
+
+    }
+    else {
+    box2.style.display='none'
+    box.style.display = 'none';
+  }
+    });
+</script>
+{% endblock %}
