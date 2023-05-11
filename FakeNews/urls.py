@@ -28,6 +28,7 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('users/', include('users.urls')),
     path('', include('home_page.urls')),
+    path('graphs_statistics/', include('graphs_statistics.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

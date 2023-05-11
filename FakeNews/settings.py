@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home_page',
     'users',
     'admin_panel',
+    'graphs_statistics',
 ]
 
 MIDDLEWARE = [
