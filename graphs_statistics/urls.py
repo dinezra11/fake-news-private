@@ -7,6 +7,6 @@ from . import views
 
 urlpatterns = [
 
-path('graphPredictionapprovess', views.graphPredictionapprovess, name='graphPredictionapprovess'),
+path('graph', views.graphPredictionapprovess, name='graph'),
 
 ]
